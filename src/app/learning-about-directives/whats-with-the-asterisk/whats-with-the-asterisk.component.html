@@ -1,0 +1,32 @@
+<!---------------------------------------------------->
+<div *ngIf="robot" class="name">{{robot.name}}</div>
+
+<!-- is the same as: -->
+
+<ng-template [ngIf]="robot">
+  <div class="name">{{robot.name}}</div>
+</ng-template>
+
+<!-- what the DOM gets: -->
+
+<!--bindings={
+  "ng-reflect-ng-if": "[object Object]"
+}-->
+<div _ngcontent-lgq-c19 class="name">Hank</div>
+<!--bindings={
+  "ng-reflect-ng-if": "[object Object]"
+}-->
+<!---------------------------------------------------->
+
+
+<!---------------------------------------------------->
+<div *ngFor="let robot of robots; let i=index; let odd=odd; trackBy: trackById" [class.odd]="odd">
+  ({{i}}) {{robot.name}}
+</div>
+
+<!-- is the same as -->
+
+<ng-template ngFor let-robot [ngForOf]="robots" let-i="index" let-odd="odd" [ngForTrackBy]="trackById">
+  <div [class.odd]="odd">({{i}}) {{robot.name}}</div>
+</ng-template>
+<!---------------------------------------------------->

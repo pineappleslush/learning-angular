@@ -1,0 +1,23 @@
+<h1>Directives</h1>
+
+<div>
+  <h2>Attribute Directives</h2>
+  <p appInteractiveAttributeDirective>This uses an interactive attribute directive</p>
+
+  <!-- directive binding variations -->
+  <p appInteractiveAttributeDirectiveCustomizable backgroundColor="yellow" [textColor]="'green'">Yellow background</p>
+  <p appInteractiveAttributeDirectiveCustomizable [backgroundColor]="highlightColor">Yellow background</p>
+
+  <!-- Simultaneously apply the directive and the background color in the same attribute -->
+  <p [appInteractiveAttributeDirectiveCustomizableShorthand]="{backgroundColor: highlightColor, textColor: 'red'}">
+    Shorthand</p>
+</div>
+
+<div>
+  <h2>Structural Directives</h2>
+
+  <app-whats-with-the-asterisk></app-whats-with-the-asterisk>
+
+  <app-ng-switch></app-ng-switch>
+</div>
+
