@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Robot} from '../robot/robot.model';
+import {Robot} from '../../robot/robot.model';
 
 @Component({
   selector: 'app-ng-switch',
@@ -8,7 +8,12 @@ import {Robot} from '../robot/robot.model';
 })
 export class NgSwitchComponent implements OnInit {
 
-  public robot: Robot = {id: 1, name: 'Hank', power: 'Circuit Breaker', status: 'hungry'};
+  public robot: Robot = {
+    id: 1,
+    name: 'Hank',
+    power: 'Circuit Breaker',
+    status: 'hungry'
+  };
 
   constructor() {
   }

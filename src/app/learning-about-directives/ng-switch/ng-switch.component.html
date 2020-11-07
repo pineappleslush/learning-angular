@@ -1,6 +1,0 @@
-<div [ngSwitch]="robot?.status">
-  <app-happy-robot *ngSwitchCase="'happy'" [robot]="robot"></app-happy-robot>
-  <app-hungry-robot *ngSwitchCase="'hungry'" [robot]="robot"></app-hungry-robot>
-  <app-tired-robot *ngSwitchCase="'tired'" [robot]="robot"></app-tired-robot>
-  <app-lost-robot *ngSwitchDefault [robot]="robot"></app-lost-robot>
-</div>

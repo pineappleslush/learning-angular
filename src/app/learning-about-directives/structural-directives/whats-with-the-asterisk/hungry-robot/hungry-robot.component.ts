@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Robot} from '../../robot/robot.model';
+import {Robot} from '../../../robot/robot.model';
 
 @Component({
   selector: 'app-hungry-robot',

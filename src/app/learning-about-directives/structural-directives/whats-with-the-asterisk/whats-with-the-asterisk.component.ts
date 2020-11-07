@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Robot} from '../robot/robot.model';
+import {Robot} from '../../robot/robot.model';
 
 @Component({
   selector: 'app-whats-with-the-asterisk',

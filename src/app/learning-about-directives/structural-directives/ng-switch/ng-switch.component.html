@@ -1,0 +1,23 @@
+<div [ngSwitch]="robot?.status">
+  <app-happy-robot *ngSwitchCase="'happy'" [robot]="robot"></app-happy-robot>
+  <app-hungry-robot *ngSwitchCase="'hungry'" [robot]="robot"></app-hungry-robot>
+  <app-tired-robot *ngSwitchCase="'tired'" [robot]="robot"></app-tired-robot>
+  <app-lost-robot *ngSwitchDefault [robot]="robot"></app-lost-robot>
+</div>
+
+<!-- is the same as -->
+
+<div [ngSwitch]="robot?.status">
+  <ng-template [ngSwitchCase]="'happy'">
+    <app-happy-robot [robot]="robot"></app-happy-robot>
+  </ng-template>
+  <ng-template [ngSwitchCase]="'hungry'">
+    <app-hungry-robot [robot]="robot"></app-hungry-robot>
+  </ng-template>
+  <ng-template [ngSwitchCase]="'tired'">
+    <app-tired-robot [robot]="robot"></app-tired-robot>
+  </ng-template>
+  <ng-template ngSwitchDefault>
+    <app-lost-robot [robot]="robot"></app-lost-robot>
+  </ng-template>
+</div>
