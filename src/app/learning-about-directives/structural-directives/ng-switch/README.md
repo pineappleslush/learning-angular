@@ -5,7 +5,7 @@ Implementing a `switch` statement in Angular involves a group of directives:
 - `NgSwitchCase`
 - `NgSwitchDefault`
 
-Code example [here](src/app/learning-about-directives/structural-directives/ng-switch/ng-switch.component.html).
+Code example [here](ng-switch.component.html).
 
 
 ## How it works
