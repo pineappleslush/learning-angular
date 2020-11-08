@@ -16,4 +16,5 @@ It is considered an *attribute* directive because it controls the behavior of th
 `NgSwitchCase` and `NgSwitchDefault` are *structural* directives. These will need to be attached to elements with the asterisk `*` prefixed.
 If an `NgSwitchCase` matches the switch value, it will display the host element. If nothing matches and an `NgSwitchDefault` is defined, it will display its host element.
 
-The host element refers to the element to which you apply a directive on. `<hungry-robot>` is the host element for the "hungry" `*ngSwitchCase`.
+The host element refers to the element to which you apply a directive on. 
+`<hungry-robot>` is the host element for the "hungry" `*ngSwitchCase`.

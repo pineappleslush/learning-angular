@@ -14,6 +14,10 @@ import { HappyRobotComponent } from './learning-about-directives/structural-dire
 import { HungryRobotComponent } from './learning-about-directives/structural-directives/whats-with-the-asterisk/hungry-robot/hungry-robot.component';
 import { TiredRobotComponent } from './learning-about-directives/structural-directives/whats-with-the-asterisk/tired-robot/tired-robot.component';
 import { LostRobotComponent } from './learning-about-directives/structural-directives/whats-with-the-asterisk/lost-robot/lost-robot.component';
+import { NgTemplateComponent } from './learning-about-directives/structural-directives/ng-template/ng-template.component';
+import {FormsModule} from '@angular/forms';
+import { NgContainerComponent } from './learning-about-directives/structural-directives/ng-container/ng-container.component';
+import { UnlessDirective } from './learning-about-directives/structural-directives/unless.directive';
 
 @NgModule({
   declarations: [
@@ -28,11 +32,15 @@ import { LostRobotComponent } from './learning-about-directives/structural-direc
     HappyRobotComponent,
     HungryRobotComponent,
     TiredRobotComponent,
-    LostRobotComponent
+    LostRobotComponent,
+    NgTemplateComponent,
+    NgContainerComponent,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

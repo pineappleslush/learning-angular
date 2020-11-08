@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Robot} from '../../robot/robot.model';
+import {RobotService} from '../../robot/robot.service';
 
 @Component({
   selector: 'app-whats-with-the-asterisk',
@@ -8,22 +9,18 @@ import {Robot} from '../../robot/robot.model';
 })
 export class WhatsWithTheAsteriskComponent implements OnInit {
 
-  public robots: Robot[] = [
-    {id: 1, name: 'Hank', power: 'Circuit Breaker', status: 'happy'},
-    {id: 2, name: 'Pepper', power: 'Flame Thrower', status: 'over-heating'}
-  ];
-
+  public robots: Robot[];
   public robot: Robot;
 
-  constructor() {
+  constructor(private robotService: RobotService) {
   }
 
   ngOnInit(): void {
+    this.robots = this.robotService.getRobots();
     this.robot = this.robots[0];
   }
 
   public trackById(index: number, robot: Robot): number {
     return robot.id;
   }
-
 }

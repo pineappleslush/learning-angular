@@ -1,0 +1,21 @@
+<!-- Example #1 -->
+<!-- The dropdown won't render because a span is an unexpected element type inside of a select-->
+<div>
+  Pick a robot (if you can):
+</div>
+<select [(ngModel)]="robot">
+  <span *ngFor="let r of robots">
+    <option [ngValue]="r">{{r.name}}</option>
+  </span>
+</select>
+
+
+<!-- Example #2-->
+<div>
+  Pick a robot:
+</div>
+<select [(ngModel)]="robot">
+  <ng-container *ngFor="let r of robots">
+    <option [ngValue]="r">{{r.name}}</option>
+  </ng-container>
+</select>
