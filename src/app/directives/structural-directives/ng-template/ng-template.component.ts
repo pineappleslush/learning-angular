@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {RobotService} from '../../robot/robot.service';
-import {Robot} from '../../robot/robot.model';
+import {RobotService} from '../../../robot/robot.service';
+import {Robot} from '../../../robot/robot.model';
 
 @Component({
   selector: 'app-ng-template',

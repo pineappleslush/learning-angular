@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Robot} from '../../robot/robot.model';
-import {RobotService} from '../../robot/robot.service';
+import {Robot} from '../../../robot/robot.model';
+import {RobotService} from '../../../robot/robot.service';
 
 @Component({
   selector: 'app-ng-container',

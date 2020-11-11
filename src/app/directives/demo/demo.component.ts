@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-directives',
-  templateUrl: './directives.component.html',
-  styleUrls: ['./directives.component.scss']
+  templateUrl: './demo.component.html',
+  styleUrls: ['./demo.component.scss']
 })
-export class DirectivesComponent implements OnInit {
+export class DemoComponent implements OnInit {
 
   public highlightColor = 'yellow';
 
