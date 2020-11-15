@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {LoggingService} from './logging.service';
 
 @Injectable({
@@ -20,6 +20,10 @@ export class AccountsService {
       status: 'unknown'
     }
   ];
+
+  // Creating an EventEmitter in a service can allow for cross-component communication
+  // AccountComponent emits this event and NewAccountComponent is subscribed to this event
+  statusUpdated = new EventEmitter<string>();
 
   constructor(private loggingService: LoggingService) {
   }
