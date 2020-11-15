@@ -3,7 +3,7 @@ import {Directive, ElementRef, HostListener} from '@angular/core';
 @Directive({
   selector: '[appInteractiveAttributeDirective]'
 })
-export class SimpleDirective {
+export class InteractiveAttributeDirective {
 
   constructor(private elementRef: ElementRef) { }
 

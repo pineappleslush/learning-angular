@@ -2,16 +2,21 @@
 
 <div>
   <h2>Attribute Directives</h2>
+  <p appBasicHighlight>This is a basic attribute directive</p>
+  <p appRendererHighlight>This is a better way to write attribute directives using Renderer</p>
+  <p appHostBindingHighlight>This uses HostBinding, removing the need to use Renderer</p>
+
   <p appInteractiveAttributeDirective>This uses an interactive attribute directive</p>
 
   <!-- directive binding variations -->
-  <p appInteractiveAttributeDirectiveCustomizable backgroundColor="yellow" [textColor]="'green'">Yellow background</p>
-  <p appInteractiveAttributeDirectiveCustomizable [backgroundColor]="highlightColor">Yellow background</p>
+  <p appCustomizableHighlight backgroundColor="yellow" [textColor]="'green'">Yellow background</p>
+  <p appCustomizableHighlight [backgroundColor]="highlightColor">Yellow background</p>
 
   <!-- Simultaneously apply the directive and the background color in the same attribute -->
-  <p [appInteractiveAttributeDirectiveCustomizableShorthand]="{backgroundColor: highlightColor, textColor: 'red'}">
-    Shorthand</p>
+  <p [appCustomizableShorthandHighlight]="{backgroundColor: highlightColor, textColor: 'red'}">Shorthand</p>
+
 </div>
+
 
 <div>
   <h2>Structural Directives</h2>
@@ -33,3 +38,15 @@
   <p *appUnless="false">It's show time!</p>
 </div>
 
+
+<div>
+  <h2>Dropdown Directive</h2>
+
+  <div class="dropdown" appDropdown>
+    <button>Show Dropdown</button>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+  </div>
+</div>

@@ -1,11 +1,15 @@
 import {Directive, ElementRef, HostListener, Input} from '@angular/core';
 
 @Directive({
-  selector: '[appInteractiveAttributeDirectiveShorthandReadable]'
+  selector: '[appCustomizableShorthandReadableHighlight]'
 })
-export class CustomizableShorthandReadableDirective {
+export class CustomizableShorthandReadableHighlightDirective {
 
-  @Input('appInteractiveAttributeDirectiveShorthandReadable') settings: { backgroundColor: string, textColor: string };
+  /*
+  * You can name an input property's alias to match the directive selector to
+  * simultaneously apply the directive and set that property in the same attribute.
+  * */
+  @Input('appCustomizableShorthandReadableHighlight') settings: { backgroundColor: string, textColor: string };
 
   constructor(private elementRef: ElementRef) {
   }

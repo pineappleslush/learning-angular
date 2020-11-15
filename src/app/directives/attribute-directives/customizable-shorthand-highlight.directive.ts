@@ -1,21 +1,21 @@
 import {Directive, ElementRef, HostListener, Input} from '@angular/core';
 
 @Directive({
-  selector: '[appInteractiveAttributeDirectiveCustomizableShorthand]'
+  selector: '[appCustomizableShorthandHighlight]'
 })
-export class CustomizableShorthandDirective {
+export class CustomizableShorthandHighlightDirective {
 
   /*
-  * You can name an input property to match the directive selector to
-  * simultaneously apply the directive and set that property in the same attribute.
+  * This variation allows you to simultaneously apply the directive and the background color in the same attribute
   * */
-  @Input() appInteractiveAttributeDirectiveCustomizableShorthand: {backgroundColor: string, textColor: string};
+
+  @Input() appCustomizableShorthandHighlight: {backgroundColor: string, textColor: string};
 
   constructor(private elementRef: ElementRef) {
   }
 
   @HostListener('mouseenter') onMouseEnter(): void {
-    this.changeColors(this.appInteractiveAttributeDirectiveCustomizableShorthand);
+    this.changeColors(this.appCustomizableShorthandHighlight);
   }
 
   @HostListener('mouseleave') onMouseLeave(): void {

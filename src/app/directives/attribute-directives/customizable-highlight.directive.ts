@@ -1,9 +1,9 @@
 import {Directive, ElementRef, HostListener, Input} from '@angular/core';
 
 @Directive({
-  selector: '[appInteractiveAttributeDirectiveCustomizable]'
+  selector: '[appCustomizableHighlight]'
 })
-export class CustomizableDirective {
+export class CustomizableHighlightDirective {
 
   @Input() backgroundColor: string;
   @Input() textColor: string;
