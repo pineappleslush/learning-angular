@@ -27,6 +27,12 @@ import { DropdownDirective } from './directives/dropdown-directive/dropdown.dire
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
+import { ServicesDemoComponent } from './services/services-demo/services-demo.component';
+import { ManageAccountsDemoComponent } from './services/manage-accounts-demo/manage-accounts-demo.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { NewAccountComponent } from './services/manage-accounts-demo/new-account/new-account.component';
+import { AccountComponent } from './services/manage-accounts-demo/account/account.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -52,6 +58,10 @@ import {MatButtonModule} from '@angular/material/button';
     RendererHighlightDirective,
     HostBindingHighlightDirective,
     DropdownDirective,
+    ServicesDemoComponent,
+    ManageAccountsDemoComponent,
+    NewAccountComponent,
+    AccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +69,9 @@ import {MatButtonModule} from '@angular/material/button';
     FormsModule,
     BrowserAnimationsModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
