@@ -36,6 +36,7 @@ import {MatCardModule} from '@angular/material/card';
 import {ManageUsersDemoComponent} from './services/manage-users-demo/manage-users-demo.component';
 import {InactiveUsersComponent} from './services/manage-users-demo/inactive-users/inactive-users.component';
 import {ActiveUsersComponent} from './services/manage-users-demo/active-users/active-users.component';
+import {RecipeAppModule} from './recipe-app/recipe-app.module';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import {ActiveUsersComponent} from './services/manage-users-demo/active-users/ac
     MatMenuModule,
     MatButtonModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    RecipeAppModule
   ],
   providers: [],
   bootstrap: [AppComponent]
