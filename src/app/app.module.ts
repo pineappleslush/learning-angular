@@ -20,19 +20,22 @@ import {NgContainerComponent} from './directives/structural-directives/ng-contai
 import {UnlessDirective} from './directives/structural-directives/unless.directive';
 import {WithoutDependencyInjectionComponent} from './dependency-injection/without-dependency-injection/without-dependency-injection.component';
 import {DependencyInjectionDemoComponent} from './dependency-injection/dependency-injection-demo/dependency-injection-demo.component';
-import { BasicHighlightDirective } from './directives/attribute-directives/basic-highlight.directive';
-import { RendererHighlightDirective } from './directives/attribute-directives/renderer-highlight.directive';
-import { HostBindingHighlightDirective } from './directives/attribute-directives/host-binding-highlight.directive';
-import { DropdownDirective } from './directives/dropdown-directive/dropdown.directive';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BasicHighlightDirective} from './directives/attribute-directives/basic-highlight.directive';
+import {RendererHighlightDirective} from './directives/attribute-directives/renderer-highlight.directive';
+import {HostBindingHighlightDirective} from './directives/attribute-directives/host-binding-highlight.directive';
+import {DropdownDirective} from './directives/dropdown-directive/dropdown.directive';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
-import { ServicesDemoComponent } from './services/services-demo/services-demo.component';
-import { ManageAccountsDemoComponent } from './services/manage-accounts-demo/manage-accounts-demo.component';
+import {ServicesDemoComponent} from './services/services-demo/services-demo.component';
+import {ManageAccountsDemoComponent} from './services/manage-accounts-demo/manage-accounts-demo.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { NewAccountComponent } from './services/manage-accounts-demo/new-account/new-account.component';
-import { AccountComponent } from './services/manage-accounts-demo/account/account.component';
+import {NewAccountComponent} from './services/manage-accounts-demo/new-account/new-account.component';
+import {AccountComponent} from './services/manage-accounts-demo/account/account.component';
 import {MatCardModule} from '@angular/material/card';
+import {ManageUsersDemoComponent} from './services/manage-users-demo/manage-users-demo.component';
+import {InactiveUsersComponent} from './services/manage-users-demo/inactive-users/inactive-users.component';
+import {ActiveUsersComponent} from './services/manage-users-demo/active-users/active-users.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +65,9 @@ import {MatCardModule} from '@angular/material/card';
     ManageAccountsDemoComponent,
     NewAccountComponent,
     AccountComponent,
+    ManageUsersDemoComponent,
+    InactiveUsersComponent,
+    ActiveUsersComponent,
   ],
   imports: [
     BrowserModule,
