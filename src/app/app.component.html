@@ -1,11 +1,13 @@
 <mat-toolbar color="primary">
-  <span>My Application</span>
+  <span routerLink="/">My Application</span>
 </mat-toolbar>
 
-<app-directives-demo></app-directives-demo>
+<mat-sidenav-container class="sidenav-container" role="main">
+  <mat-sidenav mode="side" class="sidenav" opened>
+    <app-navigation></app-navigation>
+  </mat-sidenav>
 
-<app-dependency-injection-demo></app-dependency-injection-demo>
-
-<app-services-demo></app-services-demo>
-
-<app-recipe-app></app-recipe-app>
+  <mat-sidenav-content class="sidenav-content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

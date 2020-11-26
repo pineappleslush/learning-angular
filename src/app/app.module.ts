@@ -37,6 +37,10 @@ import {ManageUsersDemoComponent} from './services/manage-users-demo/manage-user
 import {InactiveUsersComponent} from './services/manage-users-demo/inactive-users/inactive-users.component';
 import {ActiveUsersComponent} from './services/manage-users-demo/active-users/active-users.component';
 import {RecipeAppModule} from './recipe-app/recipe-app.module';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {HomeComponent} from './home/home.component';
+import {NavigationComponent} from './navigation/navigation.component';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -69,6 +73,8 @@ import {RecipeAppModule} from './recipe-app/recipe-app.module';
     ManageUsersDemoComponent,
     InactiveUsersComponent,
     ActiveUsersComponent,
+    HomeComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,7 +85,9 @@ import {RecipeAppModule} from './recipe-app/recipe-app.module';
     MatButtonModule,
     MatToolbarModule,
     MatCardModule,
-    RecipeAppModule
+    RecipeAppModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
