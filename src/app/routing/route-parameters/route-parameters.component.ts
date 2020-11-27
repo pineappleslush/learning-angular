@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Params} from '@angular/router';
 import {Robot} from '../../robot/robot.model';
 import {RobotService} from '../../robot/robot.service';
 
@@ -20,6 +20,10 @@ export class RouteParametersComponent implements OnInit {
   ngOnInit(): void {
     // '+' is shorthand for converting string to int
     this.robot = this.robotService.find(+this.activatedRoute.snapshot.params['id']);
+
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.robot = this.robotService.find(+params['id']);
+    })
   }
 
 }

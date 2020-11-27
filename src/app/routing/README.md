@@ -135,3 +135,30 @@ export class RouteParametersComponent implements OnInit {
   }
 }
 ```
+
+### Subscribe to parameter changes
+The example above has one small flaw. 
+If the component is already loaded, but then the URL changes with a different parameter value, the component does not refresh with the latest value.
+This behaviour is not actually considered a bug.
+
+The data is initially retrieved from the activated route's snapshot object when the component first initializes.
+
+When the URL updates, Angular sees that we are still on the same component and does not re-instantiate the component.
+
+Technically, the expected data to load has changed, but Angular only sees that the component hasn't changed and decides not to destroy the current component, just to recreate a new one since we are already on that component.
+
+In order to react to subsequent changes after the component has first initialized, we can **subscribe** to the activated route params, which is an **observable**.
+
+Observables allow us to subscribe to an event that can be triggered in the future, allowing us to work with asynchronous tasks easily.
+
+Here's an update to [`ngOnInit()`](route-parameters/route-parameters.component.ts), subscribing to param changes:
+```ts
+ngOnInit(): void {
+  // '+' is shorthand for converting string to int
+  this.robot = this.robotService.find(+this.activatedRoute.snapshot.params['id']);
+
+  this.activatedRoute.params.subscribe((params: Params) => {
+    this.robot = this.robotService.find(+params['id']);
+  })
+}
+```
