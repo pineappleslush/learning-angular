@@ -41,6 +41,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {HomeComponent} from './home/home.component';
 import {NavigationComponent} from './navigation/navigation.component';
 import {MatListModule} from '@angular/material/list';
+import {RoutingDemoComponent} from './routing/routing-demo/routing-demo.component';
+import {RouteParametersComponent} from './routing/route-parameters/route-parameters.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +77,8 @@ import {MatListModule} from '@angular/material/list';
     ActiveUsersComponent,
     HomeComponent,
     NavigationComponent,
+    RoutingDemoComponent,
+    RouteParametersComponent,
   ],
   imports: [
     BrowserModule,

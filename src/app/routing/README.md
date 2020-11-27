@@ -10,13 +10,7 @@ ng new routing-app --routing
 ## Define your routes
 Inside of [`app-routing.module.ts`](../app-routing.module.ts), define some paths and what component it should load:
 ```ts
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {AppComponent} from './app.component';
-import {DirectivesDemoComponent} from './directives/directives-demo/directives-demo.component';
-import {DependencyInjectionDemoComponent} from './dependency-injection/dependency-injection-demo/dependency-injection-demo.component';
-import {ServicesDemoComponent} from './services/services-demo/services-demo.component';
-import {RecipeAppComponent} from './recipe-app/recipe-app.component';
+import ...
 
 const routes: Routes = [
   {path: '', component: AppComponent},
@@ -50,3 +44,94 @@ In [`app.component.html`](../app.component.html), we want the component to load 
 </mat-sidenav-container>
 ```
 
+
+## Programmatic routing
+Aside from a link, you may want to incorporate a button that calls a method to handle something, then redirects that user to a different page.
+
+Here's a simple scenario ([`routing-demo.component.ts`](routing-demo/routing-demo.component.ts)):
+
+```ts
+import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+
+@Component({
+  selector: 'app-routing-demo',
+  template: `
+    <button mat-stroked-button color="primary" (click)="onGoToDirectives()">Learn About Directives</button>
+  `,
+  styleUrls: ['./routing-demo.component.scss']
+})
+export class RoutingDemoComponent {
+
+  constructor(private router: Router) { }
+
+  onGoToDirectives() {
+    this.router.navigate(['/directives']);
+  }
+}
+```
+
+
+## Inside `router.navigate()`
+The `navigate()` method accepts 2 params: commands (required), and extras (optional).
+It then returns a Promise of `true` if the navigation was successful, or `false` if it failed or was rejected due to an error.
+
+```ts
+navigate(commands: any[], extras?: NavigationExtras): Promise<boolean>;
+```
+
+### `commands` param
+An array of URL fragments used to construct the destined URL.
+The fragments are applied to the current URL unless a `relativeTo` property is passed into the extras options object.
+
+### `extras` param
+A NavigationExtras options object used to modify the `Router` navigation strategy.
+All of these properties are optional to include in the options object.
+
+| Property              | Type                            | Purpose |
+| --------------------- | ------------------------------- | ------- |
+| `relativeTo`          | `ActivatedRoute` or `null`      | Specify a root URI to use for relative navigation|
+| `queryParams`         | `Params` or `null`              | Set query params to the URL |
+| `fragmentParams`      | `string`                        | Sets a hash fragment to the URL |
+| `queryParamsHandling` | `QueryParamsHandling` or `null` | How the query params in the router link are handled for the next navigation (preserve or merge) |
+| `preserveFragment`    | `boolean`                       | Preserve the URL fragment for the next navigation |
+| `skipLocationChange`  | `boolean`                       | Navigate without pushing a new state into history |
+| `replaceUrl`          | `boolean`                       | Navigate and replace the current state in history |
+| `state`               | `{[k: string]: any;}`           | Developer-defined state that can be passed to any navigation. Its values are accessible through `Navigation.extras` object returned from the [Router.getCurrentNavigation()method](api/router/Router#getcurrentnavigation) while a navigation is executing. |
+
+
+## Accessing Parameters
+[`routing-demo.component.html`](routing-demo/routing-demo.component.html) displays a list of Robot Detail buttons. 
+
+Clicking a button will take you to [`route-parameters.component.ts`](route-parameters/route-parameters.component.ts), which displays the details of a robot based on the id defined as a variable in the route path.
+```ts
+import ...
+
+@Component({
+  selector: 'app-route-parameters',
+  template: `
+    <h2>{{robot.name}} Details</h2>
+    
+    <mat-list>
+      <mat-list-item>Id: {{robot.id}}</mat-list-item>
+      <mat-list-item>Power: {{robot.power}}</mat-list-item>
+      <mat-list-item>Status: {{robot.status}}</mat-list-item>
+    </mat-list>
+  `,
+  styleUrls: ['./route-parameters.component.scss']
+})
+export class RouteParametersComponent implements OnInit {
+
+  robot: Robot;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private robotService: RobotService
+  ) { }
+
+  ngOnInit(): void {
+    // '+' is shorthand for converting string to int
+    this.robot = this.robotService.find(+this.activatedRoute.snapshot.params['id']);
+  }
+}
+```

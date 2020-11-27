@@ -15,4 +15,10 @@ export class RobotService {
   getRobots(): Robot[] {
     return this.robots;
   }
+
+  find(id: number) {
+    let robot = this.robots.find(robot => robot.id === id);
+    return robot;
+    // return JSON.parse(JSON.stringify(robot));
+  }
 }
