@@ -23,7 +23,12 @@ export class RouteParametersComponent implements OnInit {
 
     this.activatedRoute.params.subscribe((params: Params) => {
       this.robot = this.robotService.find(+params['id']);
-    })
+    });
+
+    console.log(this.activatedRoute.snapshot.queryParams);
+    console.log(this.activatedRoute.snapshot.fragment);
+    this.activatedRoute.queryParams.subscribe();
+    this.activatedRoute.fragment.subscribe();
   }
 
 }

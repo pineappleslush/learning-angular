@@ -159,6 +159,27 @@ ngOnInit(): void {
 
   this.activatedRoute.params.subscribe((params: Params) => {
     this.robot = this.robotService.find(+params['id']);
-  })
+  });
 }
 ```
+
+### Query params and fragments
+You can also add query parameters and fragments to the URL like so:
+```angular2html
+<a
+  [routerLink]="['/routing', 'parameters-demo', '1']"
+  [queryParams]="{allowEdit: 1}"
+  fragment="loading"
+>
+  Robot 1 with query params and fragment
+</a>
+```
+
+You can access the queryParams and fragments and subscribe to their changes just as you would params.
+```ts
+console.log(this.activatedRoute.snapshot.queryParams);
+console.log(this.activatedRoute.snapshot.fragment);
+this.activatedRoute.queryParams.subscribe();
+this.activatedRoute.fragment.subscribe();
+```
+
