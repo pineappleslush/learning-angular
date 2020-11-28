@@ -7,6 +7,7 @@ import {RecipeAppComponent} from './recipe-app/recipe-app.component';
 import {HomeComponent} from './home/home.component';
 import {RoutingDemoComponent} from './routing/routing-demo/routing-demo.component';
 import {RouteParametersComponent} from './routing/route-parameters/route-parameters.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -15,11 +16,12 @@ const routes: Routes = [
   {path: 'services', component: ServicesDemoComponent},
   {
     path: 'routing', component: RoutingDemoComponent, children: ([
+      {path: 'parameters-demo/:id', component: RouteParametersComponent},
     ])
   },
-      {path: 'routing/parameters-demo/:id', component: RouteParametersComponent},
-
-  {path: 'recipe-app', component: RecipeAppComponent}
+  {path: 'recipe-app', component: RecipeAppComponent},
+  {path: 'error', component: PageNotFoundComponent},
+  {path: '**', redirectTo: '/error'},
 ];
 
 @NgModule({

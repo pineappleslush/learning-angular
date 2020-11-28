@@ -183,3 +183,53 @@ this.activatedRoute.queryParams.subscribe();
 this.activatedRoute.fragment.subscribe();
 ```
 
+
+## Nested routes
+Sometimes, you'll want to create routes relative to a component other than the root.
+In that case, you can nest routes, creating child routes within a component.
+When creating nested routes, you will need to define a separate outlet since it cannot overwrite the parent component.
+
+Let's convert the details view from the routing-demo page as a child route in [`app-routing.module.ts`](../app-routing.module.ts):
+```ts
+const routes: Routes = [
+  ...
+  {
+    path: 'routing', component: RoutingDemoComponent, children: ([
+      {path: 'parameters-demo/:id', component: RouteParametersComponent},
+    ])
+  },
+  ...
+];
+```
+
+We'll need to introduce a new `<router-outlet>` inside of [`routing-demo.component.html`](routing-demo/routing-demo.component.html):
+```angular2html
+...
+
+<div>
+  <router-outlet></router-outlet>
+</div>
+``` 
+
+
+## Redirect
+You can redirect a route to another route and use wildcards for the path:
+```ts
+const routes: Routes = [
+  ...
+  {path: 'error', component: PageNotFoundComponent},
+  {path: '**', redirectTo: '/error'},
+];
+```
+
+The default path matching strategy is `"prefix"`.
+This means Angular will check the URL to see if it starts with the path specified in the route.
+
+If you were to set up a redirection route like `{ path: '', redirectTo: '/somewhere-else' }`, this route would **always** redirect you to `/somewhere-else`.
+
+Based on the default matching strategy, every path technically starts with `'''`.
+
+To fix this, you can specify the matching strategy to use `"full"`:
+`{ path: '', redirectTo: '/somewhere-else', pathMatch: 'full' }`
+
+Now, it will only redirect to `/somewhere-else` if the full path is `''`, meaning there is no other content in 

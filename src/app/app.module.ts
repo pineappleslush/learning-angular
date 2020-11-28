@@ -43,6 +43,7 @@ import {NavigationComponent} from './navigation/navigation.component';
 import {MatListModule} from '@angular/material/list';
 import {RoutingDemoComponent} from './routing/routing-demo/routing-demo.component';
 import {RouteParametersComponent} from './routing/route-parameters/route-parameters.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import {RouteParametersComponent} from './routing/route-parameters/route-paramet
     NavigationComponent,
     RoutingDemoComponent,
     RouteParametersComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
