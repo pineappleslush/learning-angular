@@ -1,0 +1,8 @@
+<h2>Login</h2>
+
+<p>{{ message }} </p>
+
+<button *ngIf="!authService.isLoggedIn; else showLogout" (click)="login()" mat-flat-button color="primary">Login</button>
+<ng-template #showLogout>
+  <button (click)="logout()" mat-flat-button color="primary">Logout</button>
+</ng-template>

@@ -8,9 +8,10 @@ import {HomeComponent} from './home/home.component';
 import {RoutingDemoComponent} from './routing/routing-demo/routing-demo.component';
 import {RouteParametersComponent} from './routing/route-parameters/route-parameters.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {LoginComponent} from './auth/login/login.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: HomeComponent, pathMatch: 'full'},
   {path: 'directives', component: DirectivesDemoComponent},
   {path: 'dependency-injection', component: DependencyInjectionDemoComponent},
   {path: 'services', component: ServicesDemoComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   },
   {path: 'recipe-app', component: RecipeAppComponent},
   {path: 'error', component: PageNotFoundComponent},
-  {path: '**', redirectTo: '/error'},
+  {path: 'login', component: LoginComponent}
+  // {path: '**', redirectTo: '/error'},
 ];
 
 @NgModule({

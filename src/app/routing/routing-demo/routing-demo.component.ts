@@ -26,4 +26,8 @@ export class RoutingDemoComponent {
   viewRobotDetails(id: number) {
     this.router.navigate(['parameters-demo/' + id], { relativeTo: this.route });
   }
+
+  onGoToRestrictedArea() {
+    this.router.navigate(['/locked-down']);
+  }
 }

@@ -233,3 +233,43 @@ To fix this, you can specify the matching strategy to use `"full"`:
 `{ path: '', redirectTo: '/somewhere-else', pathMatch: 'full' }`
 
 Now, it will only redirect to `/somewhere-else` if the full path is `''`, meaning there is no other content in 
+
+
+## Route Guards
+You can implement guards on a route to intercept the process and handle some logic before proceeding with the navigation, canceling the call, or redirecting the user elsewhere.
+
+Guards can be helpful in situations such as:
+    - See if the user is not authorized to access the target component
+    - Check if the user is logged in
+    - Fetch data before the target component is displayed
+    - Save pending changes before leaving the component
+    - Prompt the user if they want to discard pending changes or save them
+    
+If a guard returns:
+- `true`: Navigation process continues
+- `false`: Navigation process stops and user is left on current component
+    - You can redirect the router to navigate elsewhere inside a guard.
+    Just be sure to return `false` since it cancels the current navigation.
+- `UrlTree`: Current navigation cancels and new navigation is set to the `UrlTree` that was returned
+    
+If a guard performs server transactions, it is considered an asynchronous operation.
+In that cause, a routing guard can return an `Observable<boolean>` or a `Promise<boolean>`.
+This makes the router wait for the observable to resolve to `true` or `false`.
+If an observable doesn't complete, the navigation is canceled.
+
+You can multiple guards at every level of a routing hierarchy.
+
+### Guard Interfaces
+| Interface          | Purpose                                                        |
+| ------------------ | -------------------------------------------------------------- | 
+| `CanActivate`      | Mediate navigation *to* a route                                |
+| `CanActivateChild` | Mediate navigation *to* a child route                          |
+| `CanDeactivate`    | Mediate navigation *away* from the current route               |
+| `Resolve`          | Perform route data retrieval *before* route activation         |
+| `CanLoad`          | Mediate navigation *to* a feature module loaded asynchronously |
+
+Order of operations:
+1. `CanDeactivate` and `CanActivateChild` guards are checked first, starting from the deepest child route to the top
+2. `CanActivate` guards are checked from the top down to the deepest child route
+3. `CanLoad` is checked before the feature module is loaded, but only if it's loaded asynchronously
+4. If any guard returns `false`, pending guards that haven't completed yet are canceled along with the entire navigation request

@@ -44,6 +44,8 @@ import {MatListModule} from '@angular/material/list';
 import {RoutingDemoComponent} from './routing/routing-demo/routing-demo.component';
 import {RouteParametersComponent} from './routing/route-parameters/route-parameters.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {LockedDownModule} from './routing/locked-down/locked-down.module';
+import {LoginComponent} from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +83,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
     RoutingDemoComponent,
     RouteParametersComponent,
     PageNotFoundComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,6 +97,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
     RecipeAppModule,
     MatSidenavModule,
     MatListModule,
+    LockedDownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
